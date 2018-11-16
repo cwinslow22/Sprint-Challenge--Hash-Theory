@@ -20,7 +20,7 @@ char **reconstruct_trip(Ticket **tickets, int length)
     route[i] = hash_table_retrieve(hash, route[i-1]);
   }
   
-
+  destroy_hash_table(hash);
   return route;
 }
 

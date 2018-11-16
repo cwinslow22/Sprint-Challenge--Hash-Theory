@@ -22,10 +22,12 @@ Answer *get_indices_of_item_weights(int *weights, int length, int limit)
         answer->index_2 = hash_table_retrieve(ht, weights[i]);
         answer->index_1 = hash_table_retrieve(ht, limit - weights[i]);
       }
+      destroy_hash_table(ht);
       return answer;
     }
   }
-  printf("%d %d\n", answer->index_1, answer->index_2);
+  // printf("%d %d\n", answer->index_1, answer->index_2);
+
   return NULL;
 }
 
