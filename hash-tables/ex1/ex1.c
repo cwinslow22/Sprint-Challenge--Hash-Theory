@@ -10,14 +10,19 @@ Answer *get_indices_of_item_weights(int *weights, int length, int limit)
 
   // YOUR CODE HERE
   for (int i = 0; i < length; i++) {
-    hash_table_insert(ht, weights[i], i)
+    hash_table_insert(ht, weights[i], i);
   }
 
   for (int i = 0; i < length; i++) {
-    if (hash_table_retrieve(limit - weights[i]) != -1) {
+    if (hash_table_retrieve(ht, limit - weights[i]) != -1) {
       if (weights[i] > (limit - weights[i])) {
-        
+        answer->index_1 = hash_table_retrieve(ht, weights[i]);
+        answer->index_2 = hash_table_retrieve(ht, limit - weights[i]);
+      } else {
+        answer->index_2 = hash_table_retrieve(ht, weights[i]);
+        answer->index_1 = hash_table_retrieve(ht, limit - weights[i]);
       }
+      return answer;
     }
   }
 
