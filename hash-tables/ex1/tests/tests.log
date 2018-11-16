@@ -1,4 +1,3 @@
-DEBUG tests/ex1_tests.c:38: ----- RUNNING: ./tests/ex1_tests
-DEBUG tests/ex1_tests.c:33: 
+DEBUG tests/ex1_tests.c:39: ----- RUNNING: ./tests/ex1_tests
+DEBUG tests/ex1_tests.c:34: 
 ----- test_ex1
-[ERROR] (tests/ex1_tests.c:14: errno: None) Your function did not return the expected answer for input {4, 4}

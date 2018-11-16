@@ -13,16 +13,18 @@ Answer *get_indices_of_item_weights(int *weights, int length, int limit)
     hash_table_insert(ht, weights[i], i);
   }
 
-  for (int i = 0; i < length; i++) {
-    if (hash_table_retrieve(ht, limit - weights[i]) != -1) {
-      if (weights[i] < (limit - weights[i])) {
-        answer->index_1 = hash_table_retrieve(ht, weights[i]);
-        answer->index_2 = hash_table_retrieve(ht, limit - weights[i]);
+  for (int j = 0; j < length; j++) {
+    if (hash_table_retrieve(ht, (limit - weights[j])) != -1) {
+      // if (weights[j] >= (limit - weights[j])) {
+      if (j >= hash_table_retrieve(ht, limit - weights[j])) {
+        answer->index_1 = j;
+        answer->index_2 = hash_table_retrieve(ht, (limit - weights[j]));
       } else {
-        answer->index_2 = hash_table_retrieve(ht, weights[i]);
-        answer->index_1 = hash_table_retrieve(ht, limit - weights[i]);
+        answer->index_2 = j;
+        answer->index_1 = hash_table_retrieve(ht, (limit - weights[j]));
       }
       destroy_hash_table(ht);
+      // printf("%d %d\n", answer->index_1, answer->index_2);
       return answer;
     }
   }

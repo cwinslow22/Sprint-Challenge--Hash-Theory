@@ -10,6 +10,7 @@ char *test_ex1()
 
   int weights_2[] = {4, 4};
   Answer* answer_2 = get_indices_of_item_weights(weights_2, 2, 8);
+
   mu_assert(answer_2->index_1 == 1, "Your function did not return the expected answer for input {4, 4}");
   mu_assert(answer_2->index_2 == 0, "Your function did not return the expected answer for input {4, 4}");
 
